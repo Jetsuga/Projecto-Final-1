@@ -1,0 +1,32 @@
+{% extends "parent.html" %}
+
+{% load static %}
+
+{% block title %}
+Posts
+{% endblock %}
+
+{% block logo %}
+{% endblock %}
+
+{% block content %}
+{% if blogposts %}
+<div class="row">
+    {% for blogpost in blogposts%}
+        <!-- Blog post-->
+        <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">Titulo: {{ blogpost.title }}</h2>
+                <h4 class="card-title h4">Subtitlo: {{ blogpost.subtitle }}</h4>
+                <div class="small text-muted">Categoria: {{ blogpost.category }}</div>
+                <p class="card-text">Contenido: {{ blogpost.content }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+{% else %}
+    <h1>Aun no se han publicado </h1>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "parent.html" %}
+
+{% load static %}
+
+{% block title %}
+Añadir Post
+{% endblock %}
+
+{% block logo %}
+{% endblock %}
+
+{% block content %}
+<header class="py-5 bg-light border-bottom mb-4">
+    <div class="container">
+        <div class="text-center my-5">
+            <h1>Añadir un nuevo Post</h1>
+                <form action="{% url 'AddBlogPost' %}" method="POST">{% csrf_token %}
+                    <h3>Añadir detalles del Post</h3>
+                    <table>
+                        {{ myForm.as_table }}
+                    </table>
+                    <input type="submit" value="Enviar">
+                </form>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block sidecontent %}
+{% endblock %}
